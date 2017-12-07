@@ -4,11 +4,15 @@
 // swipe motions are detected on the controllers
 public class SVRH_SwipeRotate : MonoBehaviour {
 
-    public bool _mInverted = false;
+    // public bool _mInverted = false;
     public const float VERTICAL_LIMIT = 60f;
 
     public bool rightHandRotation = true;
+    public float rotationDegrees = 90.0f;
+
     private SteamVR_Controller.Device rotationController;
+    private Valve.VR.EVRButtonId touchPad;
+    Valve.VR.InteractionSystem.Player player;
 
     private readonly Vector2 mXAxis = new Vector2(1, 0);
     private readonly Vector2 mYAxis = new Vector2(0, 1);
@@ -20,6 +24,9 @@ public class SVRH_SwipeRotate : MonoBehaviour {
     private Vector2 mStartPosition;
     private Vector2 endPosition;
     private float mSwipeStartTime;
+
+
+    private int debugCount = 0;
 
     float GetAngle(float input)
     {
@@ -37,15 +44,16 @@ public class SVRH_SwipeRotate : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        
         // Get the player instance
-        Valve.VR.InteractionSystem.Player player = Valve.VR.InteractionSystem.Player.instance;
+        player = Valve.VR.InteractionSystem.Player.instance;
         if (!player)
         {
             return;
         }
 
         // Get the touchpad 
-        Valve.VR.EVRButtonId touchPad = Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad;
+        touchPad = Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad;
 
         if (rightHandRotation)
         {
@@ -57,15 +65,16 @@ public class SVRH_SwipeRotate : MonoBehaviour {
 
         if (null != rotationController)
         {
-            // Touch down, possible chance for a swipe
+            // Touch down possible chance for a swipe
             if (rotationController.GetTouchDown(Valve.VR.EVRButtonId.k_EButton_Axis0))
             {
                 trackingSwipe = true;
+
                 // Record start time and position
                 mStartPosition = new Vector2(rotationController.GetAxis(Valve.VR.EVRButtonId.k_EButton_Axis0).x, rotationController.GetAxis(Valve.VR.EVRButtonId.k_EButton_Axis0).y);
                 mSwipeStartTime = Time.time;
             }
-            // Touch up , possible chance for a swipe
+            // Touch up possible chance for a swipe
             else if (rotationController.GetTouchUp(Valve.VR.EVRButtonId.k_EButton_Axis0))
             {
                 trackingSwipe = false;
@@ -87,7 +96,7 @@ public class SVRH_SwipeRotate : MonoBehaviour {
 
                 float velocity = swipeVector.magnitude / deltaTime;
 
-                Debug.Log(velocity);
+                // Debug.Log(velocity);
 
                 if (velocity > mMinVelocity &&
                     swipeVector.magnitude > mMinSwipeDist)
@@ -101,11 +110,22 @@ public class SVRH_SwipeRotate : MonoBehaviour {
                     // Detect left and right swipe
                     if (angleOfSwipe < mAngleRange)
                     {
-                        RotatePlayerSnap(player, touchPad, rotationController, 90.0f);
+                        Debug.Log(debugCount++);
+                        Debug.Log(player.feetPositionGuess);
+
+                        player.transform.Rotate(0, rotationDegrees, 0);
+                        // RotatePlayerSnap(player, touchPad, rotationController, rotationDegrees);
+                        
+                        Debug.Log(player.feetPositionGuess);                        
                     }
                     else if ((180.0f - angleOfSwipe) < mAngleRange)
                     {
-                        RotatePlayerSnap(player, touchPad, rotationController, -90.0f);
+                        Debug.Log(player.feetPositionGuess);
+
+                        player.transform.Rotate(0, -rotationDegrees, 0);                                
+                        // RotatePlayerSnap(player, touchPad, rotationController, -rotationDegrees);        <- same effect
+                        
+                        Debug.Log(player.feetPositionGuess);
                     }
                     
                 }
@@ -113,21 +133,12 @@ public class SVRH_SwipeRotate : MonoBehaviour {
         }
     }
 
+    // OLD METHOD
     void RotatePlayerSnap(Valve.VR.InteractionSystem.Player player, Valve.VR.EVRButtonId touchPad, SteamVR_Controller.Device rotationController, float rotationDegrees)
     {
         Vector2 touchPadVector = rotationController.GetAxis(touchPad);
         Vector3 euler = transform.rotation.eulerAngles;
-        float angle;
-
-        if (_mInverted)
-        {
-            angle = GetAngle(touchPadVector.y);
-        }
-        else
-        {
-            angle = GetAngle(-touchPadVector.y);
-        }
-
+        float angle = GetAngle(touchPadVector.y);
         euler.y += (touchPadVector.x + rotationDegrees);
         player.transform.rotation = Quaternion.Euler(euler);
     }
