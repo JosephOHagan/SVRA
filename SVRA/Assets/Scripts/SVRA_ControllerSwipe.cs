@@ -6,6 +6,7 @@ public class SVRA_ControllerSwipe : MonoBehaviour {
 
     [SerializeField]
     SteamVR_TrackedObject trackedObj;
+
     private const int mMessageWidth = 200;
     private const int mMessageHeight = 64;
 
@@ -15,7 +16,7 @@ public class SVRA_ControllerSwipe : MonoBehaviour {
     private bool checkSwipe = false;
 
     private Valve.VR.InteractionSystem.Player player;
-    private SteamVR_Camera vrcam;
+    // private SteamVR_Camera vrcam;
 
     private readonly string[] mMessage = {
         "",
@@ -84,9 +85,6 @@ public class SVRA_ControllerSwipe : MonoBehaviour {
 
             float deltaTime = Time.time - mSwipeStartTime;
 
-
-
-
             Vector2 swipeVector = endPosition - mStartPosition;
 
             float velocity = swipeVector.magnitude / deltaTime;
@@ -95,8 +93,6 @@ public class SVRA_ControllerSwipe : MonoBehaviour {
                 swipeVector.magnitude > mMinSwipeDist)
             {
                 // if the swipe has enough velocity and enough distance
-
-
                 swipeVector.Normalize();
 
                 float angleOfSwipe = Vector2.Dot(swipeVector, mXAxis);
@@ -152,6 +148,9 @@ public class SVRA_ControllerSwipe : MonoBehaviour {
 
         // transform.RotateAround(SteamVR_Render.instance..position, Vector3.up, rotateSpeed * Time.deltaTime);
 
+        // SteamVR_Camera camera = (SteamVR_Camera)SteamVR_Render.Top();
+        //camera.head.Rotate(player.transform.position.x - 90, player.transform.position.y, player.transform.position.z);
+        
         mMessageIndex = 1;
     }
 
