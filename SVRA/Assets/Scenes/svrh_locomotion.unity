@@ -127,10 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b45726d3151004247a101e399995daff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mMoveSpeed: 2.5
-  _mHorizontalTurnSpeed: 180
-  _mVerticalTurnSpeed: 2.5
   _mInverted: 0
+  rightHandRotation: 1
 --- !u!1001 &154125901
 Prefab:
   m_ObjectHideFlags: 0
@@ -140,7 +138,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.48
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 2}
       propertyPath: m_LocalPosition.y
@@ -148,7 +146,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -3.47
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 2}
       propertyPath: m_LocalRotation.x
@@ -336,7 +334,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 863115940}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 2.93, y: 0.39, z: 2.99}
+  m_LocalPosition: {x: 2.07, y: 1.36, z: 1.24}
   m_LocalScale: {x: 1, y: 1, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
@@ -436,7 +434,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 966450087}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.54, y: 0.14, z: -0.59}
+  m_LocalPosition: {x: -3.23, y: 1.28, z: -1.49}
   m_LocalScale: {x: 1, y: 1, z: 7}
   m_Children: []
   m_Father: {fileID: 0}

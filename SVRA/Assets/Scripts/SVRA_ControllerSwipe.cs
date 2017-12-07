@@ -13,10 +13,7 @@ public class SVRA_ControllerSwipe : MonoBehaviour {
     private readonly Vector2 mXAxis = new Vector2(1, 0);
     private readonly Vector2 mYAxis = new Vector2(0, 1);
     private bool trackingSwipe = false;
-    private bool checkSwipe = false;
-
-    private Valve.VR.InteractionSystem.Player player;
-    // private SteamVR_Camera vrcam;
+    private bool checkSwipe = false;    
 
     private readonly string[] mMessage = {
         "",
@@ -43,15 +40,7 @@ public class SVRA_ControllerSwipe : MonoBehaviour {
     private Vector2 endPosition;
 
     private float mSwipeStartTime;
-
-    void Awake()
-    {
-        // player = Valve.VR.InteractionSystem.Player.instance;
-        // vrcam = SteamVR_Render.Top();
-        // Debug(vrcam.gameObject.transform);
-        
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -61,8 +50,7 @@ public class SVRA_ControllerSwipe : MonoBehaviour {
         {
             trackingSwipe = true;
             // Record start time and position
-            mStartPosition = new Vector2(device.GetAxis(Valve.VR.EVRButtonId.k_EButton_Axis0).x,
-                device.GetAxis(Valve.VR.EVRButtonId.k_EButton_Axis0).y);
+            mStartPosition = new Vector2(device.GetAxis(Valve.VR.EVRButtonId.k_EButton_Axis0).x, device.GetAxis(Valve.VR.EVRButtonId.k_EButton_Axis0).y);
             mSwipeStartTime = Time.time;
         }
         // Touch up , possible chance for a swipe
@@ -74,8 +62,7 @@ public class SVRA_ControllerSwipe : MonoBehaviour {
         }
         else if (trackingSwipe)
         {
-            endPosition = new Vector2(device.GetAxis(Valve.VR.EVRButtonId.k_EButton_Axis0).x,
-                                      device.GetAxis(Valve.VR.EVRButtonId.k_EButton_Axis0).y);
+            endPosition = new Vector2(device.GetAxis(Valve.VR.EVRButtonId.k_EButton_Axis0).x, device.GetAxis(Valve.VR.EVRButtonId.k_EButton_Axis0).y);
 
         }
 
@@ -88,9 +75,10 @@ public class SVRA_ControllerSwipe : MonoBehaviour {
             Vector2 swipeVector = endPosition - mStartPosition;
 
             float velocity = swipeVector.magnitude / deltaTime;
+
             Debug.Log(velocity);
-            if (velocity > mMinVelocity &&
-                swipeVector.magnitude > mMinSwipeDist)
+
+            if (velocity > mMinVelocity && swipeVector.magnitude > mMinSwipeDist)
             {
                 // if the swipe has enough velocity and enough distance
                 swipeVector.Normalize();
@@ -141,26 +129,13 @@ public class SVRA_ControllerSwipe : MonoBehaviour {
 
     private void OnSwipeLeft()
     {
-        Debug.Log("Swipe Left");
-
-        // vrcam.gameObject.transform.Rotate(vrcam.gameObject.transform.position.x - 90, vrcam.gameObject.transform.position.y, vrcam.gameObject.transform.position.z);
-        // player.transform.Rotate(player.transform.position.x - 90, player.transform.position.y, player.transform.position.z);
-
-        // transform.RotateAround(SteamVR_Render.instance..position, Vector3.up, rotateSpeed * Time.deltaTime);
-
-        // SteamVR_Camera camera = (SteamVR_Camera)SteamVR_Render.Top();
-        //camera.head.Rotate(player.transform.position.x - 90, player.transform.position.y, player.transform.position.z);
-        
+        Debug.Log("Swipe Left");        
         mMessageIndex = 1;
     }
 
     private void OnSwipeRight()
     {
-        Debug.Log("Swipe right");
-
-        // vrcam.transform.Rotate(vrcam.transform.position.x + 90, vrcam.transform.position.y, vrcam.transform.position.z);
-        // player.transform.Rotate(player.transform.position.x + 90, player.transform.position.y, player.transform.position.z);
-
+        Debug.Log("Swipe right");        
         mMessageIndex = 2;
     }
 
