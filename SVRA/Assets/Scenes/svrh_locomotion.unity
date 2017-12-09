@@ -124,7 +124,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 28176415}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b45726d3151004247a101e399995daff, type: 3}
+  m_Script: {fileID: 11500000, guid: 56d2036caabc6df4a87febc1ba262dbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rightHandRotation: 1
