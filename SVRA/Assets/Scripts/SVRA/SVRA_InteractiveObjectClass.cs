@@ -31,5 +31,21 @@ public class SVRA_InteractiveObjectClass : MonoBehaviour
     /// </summary>
     /// <param name="controller"></param>
     public virtual void ButtonPressUp(EVRButtonId button, SVRA_ControllerSetup controller) {}
-    
+
+
+    /// <summary>
+    /// The PauseCollisions method temporarily pauses all collisions on the object at grab time by removing the object's rigidbody's ability to detect collisions. This can be useful for preventing clipping when initially grabbing an item.
+    /// </summary>
+    /// <param name="delay">The amount of time to pause the collisions for.</param>
+    public virtual void PauseCollisions(float delay)
+    {
+        if (delay > 0f)
+        {
+            foreach (Rigidbody rb in GetComponentsInChildren<Rigidbody>())
+            {
+                rb.detectCollisions = false;
+            }
+            Invoke("UnpauseCollisions", delay);
+        }
+    }
 }
