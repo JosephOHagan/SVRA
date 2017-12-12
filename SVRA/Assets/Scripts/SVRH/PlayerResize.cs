@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerResize : MonoBehaviour
 {
-    Valve.VR.InteractionSystem.Player player;
-    SteamVR_Camera camera;
+    Valve.VR.InteractionSystem.Player player;    
 
     [SerializeField]
     private float defaultHeight = 1.8f;   
@@ -19,7 +18,7 @@ public class PlayerResize : MonoBehaviour
             return;
         }
 
-        camera = SteamVR_Render.Top();
+        SteamVR_Camera camera = SteamVR_Render.Top();
 
         Debug.Log(player.hmdTransform.localPosition.y);
 

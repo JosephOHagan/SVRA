@@ -122,15 +122,7 @@ public class SVRH_SwipeRotate : MonoBehaviour {
                     {
                         Debug.Log(player.feetPositionGuess);
 
-                        player.transform.Rotate(0, -rotationDegrees, 0);
-                        
-                        /*
-                        player.hmdTransform
-                        var pos = playArea.TransformPoint(bodyCollider.center);
-                        playArea.Rotate(Vector3.up, angle);
-                        pos -= playArea.TransformPoint(bodyCollider.center);
-                        playArea.position += pos;
-                        */
+                        player.transform.Rotate(0, -rotationDegrees, 0);                      
 
                         // RotatePlayerSnap(player, touchPad, rotationController, -rotationDegrees);        <- same effect
 

@@ -39,7 +39,7 @@ public class ResizePlatform : MonoBehaviour
             else if (i == 3)
                 Gizmos.color = Color.white;
             // var c = corners;
-            // Gizmos.DrawSphere(new Vector3(corners[0].v0, 0.01f, corners[0].v1), 0.5f);
+            Gizmos.DrawSphere(new Vector3(corners[0].v0, 0.01f, corners[1].v0), 0.5f);
             // Gizmos.DrawSphere(new Vector3(corners[0].v0, 0.01f, corners[0].v2), 0.5f);
             // Gizmos.DrawSphere(new Vector3(corners[0].v1, 0.01f, corners[0].v0), 0.5f);
             // Gizmos.DrawSphere(new Vector3(corners[0].v1, 0.01f, corners[0].v2), 0.5f);
