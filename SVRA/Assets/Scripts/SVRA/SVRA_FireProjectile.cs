@@ -49,7 +49,7 @@ public class SVRA_FireProjectile : SVRA_InteractiveObjectClass {
     public void Awake()
     {
         // Do something appropriate here
-        SVRA_ClickButton.OnButtonPress += ToggleGunType;
+        SVRA_ClickButton.OnButtonPress += ToggleFireType;
     }
 
     public void Update()
@@ -87,43 +87,43 @@ public class SVRA_FireProjectile : SVRA_InteractiveObjectClass {
             FireProjectile();
 
             //Haptic pulse
-            controller.device.TriggerHapticPulse(2000);
+            controller.controller.TriggerHapticPulse(2000);
 
             //Trigger audio
-            gunAudioSource.Play();
+            projectileAudioSource.Play();
 
             //Turn on autofire, if gun is set to automatic
-            if (defaultGunType == GunTypes.Automatic)
-                autoFire = true;
+            if (defaultFireType == FireTypes.Automatic)
+                automaticFireMode = true;
         }
     }
 
-    public override void ButtonPressUp(EVRButtonId button, VRControllerInput controller)
+    public override void ButtonPressUp(Valve.VR.EVRButtonId button, SVRA_ControllerSetup controller)
     {
         //If button is desired "fire" button
         if (button == fireButton)
         {
             //Set autofire to false
-            autoFire = false;
+            automaticFireMode = false;
 
             //Reset autofire timer
             restTimer = 0;
         }
     }
 
-    protected void ShootBullet()
+    protected void FireProjectile()
     {
         //Create bullet and set it to muzzle's position and rotation
         GameObject projectile = Instantiate(projectilePrefab);
-        projectile.transform.position = projectileExitPoint.position;
-        projectile.transform.rotation = projectileExitPoint.rotation;
+        projectile.transform.position = projectileFirePoint.position;
+        projectile.transform.rotation = projectileFirePoint.rotation;
 
         //Add force to bullet
         Rigidbody projectileRigidbody = projectile.GetComponent<Rigidbody>();
         projectileRigidbody.AddForce(transform.forward * projectileSpeed);
     }
 
-    public void FireProjectile()
+    public void ToggleFireType()
     {
         // Swap fire type and set to matching material
         // TODO : Rewrite / Improve Code
@@ -139,6 +139,4 @@ public class SVRA_FireProjectile : SVRA_InteractiveObjectClass {
                 shooterMeshRenderers[i].material = shooterTypeMaterials[(int)defaultFireType];
         }
     }
-}
-
 }
