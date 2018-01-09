@@ -15,6 +15,8 @@ public class SVRH_TouchpadLocomotion : MonoBehaviour {
     public bool leftHandMovement = true;
 
     // TODO: Option for player to toggle between which controller controls movement and which rotation
+        // NOTE: Rotation using other trackpad removed as it rotated the play area on axis rather than player
+
     // TODO: Override function of trackpad with this feature - market this as debugging feature
 
 /*
@@ -64,7 +66,7 @@ public class SVRH_TouchpadLocomotion : MonoBehaviour {
             return;
         }
 
-        // Get the touchpad 
+        // Get the touchpad and movement controller
         touchPad = Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad;
 
         if (leftHandMovement)
@@ -76,6 +78,7 @@ public class SVRH_TouchpadLocomotion : MonoBehaviour {
             movementController = player.rightController;
         }
 
+        // Perfrom and update the player movement
         if (null != movementController)
         {
             Quaternion orientation = Camera.main.transform.rotation;
