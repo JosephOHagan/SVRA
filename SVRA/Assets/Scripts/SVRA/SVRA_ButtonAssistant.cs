@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// See NVRSteamVRInputDevice for next step
-
-public class SVRA_ButtonAssistant : MonoBehaviour {
-    public enum SVRA_Buttons
+    public enum SVRA_ButtonAssistant
     {
         System,
         ApplicationMenu,
@@ -31,17 +28,17 @@ public class SVRA_ButtonAssistant : MonoBehaviour {
 
     public class SVRA_ButtonsHelper
     {
-        private static SVRA_Buttons[] array = null;
-        public static SVRA_Buttons[] Array
+        private static SVRA_ButtonAssistant[] array = null;
+        public static SVRA_ButtonAssistant[] Array
         {
             get
             {
                 if (array == null)
                 {
-                    array = (SVRA_Buttons[])System.Enum.GetValues(typeof(SVRA_Buttons));
+                    array = (SVRA_ButtonAssistant[])System.Enum.GetValues(typeof(SVRA_ButtonAssistant));
                 }
                 return array;
             }
         }
-    }
-}
+    }  
+

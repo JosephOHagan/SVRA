@@ -5,15 +5,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
 public class SVRA_ControllerSetup : MonoBehaviour
-{
-    // Used to configure the default state of the required components
-    void Reset()
-    {
-        this.GetComponent<SphereCollider>().isTrigger = true;
-        this.GetComponent<SphereCollider>().center = new Vector3(0.0f, -0.04f, 0.0f);
-        this.GetComponent<SphereCollider>().radius = 0.05f;
-    }
-
+{    
     protected Dictionary<Valve.VR.EVRButtonId, List<SVRA_InteractiveObjectClass>> pressedDownObjects;
     protected List<SVRA_InteractiveObjectClass> overlappedObjects;
     protected List<Valve.VR.EVRButtonId> trackedButtons;
@@ -39,9 +31,18 @@ public class SVRA_ControllerSetup : MonoBehaviour
         //List the buttons you send inputs to the controller for
         trackedButtons = new List<Valve.VR.EVRButtonId>()
         {
+            // Todo : Add more here
             Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger,
             Valve.VR.EVRButtonId.k_EButton_Grip
         };
+    }
+
+    // Used to configure the default state of the required components
+    void Reset()
+    {
+        this.GetComponent<SphereCollider>().isTrigger = true;
+        this.GetComponent<SphereCollider>().center = new Vector3(0.0f, -0.04f, 0.0f);
+        this.GetComponent<SphereCollider>().radius = 0.05f;
     }
 
     void Update()
