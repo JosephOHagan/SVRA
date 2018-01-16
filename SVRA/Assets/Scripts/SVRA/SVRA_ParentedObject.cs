@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class SVRA_ParentedObject : SVRA_InteractiveObjectClass
 {
-
     public SVRA_ButtonAssistant pickupButtonAlias = SVRA_ButtonAssistant.Trigger;
 
     private Dictionary<SVRA_ButtonAssistant, Valve.VR.EVRButtonId> ButtonMapping = new Dictionary<SVRA_ButtonAssistant, Valve.VR.EVRButtonId>(new SVRA_ButtonComparator());
@@ -15,7 +14,7 @@ public class SVRA_ParentedObject : SVRA_InteractiveObjectClass
         if (ButtonMapping.ContainsKey(button) == false)
         {
             return Valve.VR.EVRButtonId.k_EButton_System;
-            //Debug.LogError("No SteamVR button configured for: " + button.ToString());
+            // Debug.LogError("No SteamVR button configured for: " + button.ToString());
         }
         return ButtonMapping[button];
     }
@@ -68,14 +67,14 @@ public class SVRA_ParentedObject : SVRA_InteractiveObjectClass
             rigidBody = this.GetComponent<Rigidbody>();
         }                    
 
-        //Capture object's original parent and kinematic state
+        // Capture object's original parent and kinematic state
         originalParent = transform.parent;
         originalKinematicState = rigidBody.isKinematic;
     }
 
     public override void ButtonPressDown(Valve.VR.EVRButtonId button, SVRA_ControllerSetup controller)
     {      
-        //If pickup button was pressed
+        // If pickup button was pressed
         if (button == pickupButton)
         {
             ParentedPickup(controller);
@@ -84,8 +83,7 @@ public class SVRA_ParentedObject : SVRA_InteractiveObjectClass
         if (replaceController)
         {
 
-            SteamVR_RenderModel mod = controller.GetComponent<SteamVR_RenderModel>();
-            
+            SteamVR_RenderModel mod = controller.GetComponent<SteamVR_RenderModel>();            
 
             foreach (SteamVR_RenderModel model in this.GetComponentsInChildren<SteamVR_RenderModel>())
             {
@@ -107,46 +105,46 @@ public class SVRA_ParentedObject : SVRA_InteractiveObjectClass
 
     public override void ButtonPressUp(Valve.VR.EVRButtonId button, SVRA_ControllerSetup controller)
     {
-        //If pickup button was released
+        // If pickup button was released
         if (button == pickupButton)
             ParentedRelease(controller);
     }
 
     protected void ParentedPickup(SVRA_ControllerSetup controller)
     {              
-        //Make object kinematic
-        //(Not effected by physics, but still able to effect other objects with physics)
+        // Make object kinematic
+        // (Not effected by physics, but still able to effect other objects with physics)
         rigidBody.isKinematic = true;
 
-        //Parent object to hand
+        // Parent object to hand
         transform.SetParent(controller.gameObject.transform);
 
-        //If there is an interaction point, snap object to that point
+        // If there is an interaction point, snap object to that point
         if (InteractionPoint != null)
         {
-            //Set the position of the object to the inverse of the interaction point's local position.
+            // Set the position of the object to the inverse of the interaction point's local position.
             transform.localPosition = -InteractionPoint.localPosition;
 
-            //Set the local rotation of the object to the inverse of the rotation of the interaction point.
-            //When you're setting your interaction point the blue arrow (Z) should be pointing in the direction you want your hand to be pointing
-            //and the green arrow (Y) should be pointing "up".
+            // Set the local rotation of the object to the inverse of the rotation of the interaction point.
+            // When you're setting your interaction point the blue arrow (Z) should be pointing in the direction you want your hand to be pointing
+            // and the green arrow (Y) should be pointing "up".
             transform.localRotation = Quaternion.Inverse(InteractionPoint.localRotation);
         }
     }
 
     protected void ParentedRelease(SVRA_ControllerSetup controller)
     {
-        //Make sure the hand is still the parent. 
-        //Could have been transferred to anothr hand.
+        // Make sure the hand is still the parent. 
+        // Could have been transferred to another hand.
         if (transform.parent == controller.gameObject.transform)
         {
-            //Return previous kinematic state
+            // Return previous kinematic state
             rigidBody.isKinematic = originalKinematicState;
 
-            //Set object's parent to its original parent
+            // Set object's parent to its original parent
             if (originalParent != controller.gameObject.transform)
             {
-                //Ensure original parent recorded wasn't somehow the controller (failsafe)
+                // Ensure original parent recorded wasn't somehow the controller (failsafe)
                 transform.SetParent(originalParent);
             }
             else
@@ -161,7 +159,7 @@ public class SVRA_ParentedObject : SVRA_InteractiveObjectClass
 
     protected void ThrowObject(SVRA_ControllerSetup controller)
     {
-        //Set object's velocity and angular velocity to that of controller
+        // Set object's velocity and angular velocity to that of controller
         rigidBody.velocity = controller.controller.velocity;
         rigidBody.angularVelocity = controller.controller.angularVelocity;
     }

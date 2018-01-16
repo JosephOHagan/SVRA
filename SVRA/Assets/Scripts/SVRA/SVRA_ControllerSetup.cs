@@ -5,7 +5,11 @@ using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
 public class SVRA_ControllerSetup : MonoBehaviour
-{    
+{
+    public SVRA_ButtonAssistant pickupButton = SVRA_ButtonAssistant.Trigger;
+    public SVRA_ButtonAssistant useButton = SVRA_ButtonAssistant.Grip;
+    private Dictionary<SVRA_ButtonAssistant, Valve.VR.EVRButtonId> ButtonMapping = new Dictionary<SVRA_ButtonAssistant, Valve.VR.EVRButtonId>(new SVRA_ButtonComparator());
+
     protected Dictionary<Valve.VR.EVRButtonId, List<SVRA_InteractiveObjectClass>> pressedDownObjects;
     protected List<SVRA_InteractiveObjectClass> overlappedObjects;
     protected List<Valve.VR.EVRButtonId> trackedButtons;
@@ -22,6 +26,9 @@ public class SVRA_ControllerSetup : MonoBehaviour
 
     void Awake()
     {
+        // Setup button name remapping
+        SetupButtonMapping();
+
         trackedObject = GetComponent<SteamVR_TrackedObject>();
 
         // Intstantiate the lists
@@ -108,6 +115,41 @@ public class SVRA_ControllerSetup : MonoBehaviour
                 }
             }
         }
+    }
+
+
+    
+    public Valve.VR.EVRButtonId GetButton(SVRA_ButtonAssistant button)
+    {
+        if (ButtonMapping.ContainsKey(button) == false)
+        {
+            return Valve.VR.EVRButtonId.k_EButton_System;
+            //Debug.LogError("No SteamVR button configured for: " + button.ToString());
+        }
+        return ButtonMapping[button];
+    }
+
+    void SetupButtonMapping()
+    {
+        ButtonMapping.Add(SVRA_ButtonAssistant.A, Valve.VR.EVRButtonId.k_EButton_A);
+        ButtonMapping.Add(SVRA_ButtonAssistant.ApplicationMenu, Valve.VR.EVRButtonId.k_EButton_ApplicationMenu);
+        ButtonMapping.Add(SVRA_ButtonAssistant.Axis0, Valve.VR.EVRButtonId.k_EButton_Axis0);
+        ButtonMapping.Add(SVRA_ButtonAssistant.Axis1, Valve.VR.EVRButtonId.k_EButton_Axis1);
+        ButtonMapping.Add(SVRA_ButtonAssistant.Axis2, Valve.VR.EVRButtonId.k_EButton_Axis2);
+        ButtonMapping.Add(SVRA_ButtonAssistant.Axis3, Valve.VR.EVRButtonId.k_EButton_Axis3);
+        ButtonMapping.Add(SVRA_ButtonAssistant.Axis4, Valve.VR.EVRButtonId.k_EButton_Axis4);
+        ButtonMapping.Add(SVRA_ButtonAssistant.Back, Valve.VR.EVRButtonId.k_EButton_Dashboard_Back);
+        ButtonMapping.Add(SVRA_ButtonAssistant.DPad_Down, Valve.VR.EVRButtonId.k_EButton_DPad_Down);
+        ButtonMapping.Add(SVRA_ButtonAssistant.DPad_Left, Valve.VR.EVRButtonId.k_EButton_DPad_Left);
+        ButtonMapping.Add(SVRA_ButtonAssistant.DPad_Right, Valve.VR.EVRButtonId.k_EButton_DPad_Right);
+        ButtonMapping.Add(SVRA_ButtonAssistant.DPad_Up, Valve.VR.EVRButtonId.k_EButton_DPad_Up);
+        ButtonMapping.Add(SVRA_ButtonAssistant.Grip, Valve.VR.EVRButtonId.k_EButton_Grip);
+        ButtonMapping.Add(SVRA_ButtonAssistant.System, Valve.VR.EVRButtonId.k_EButton_System);
+        ButtonMapping.Add(SVRA_ButtonAssistant.Touchpad, Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad);
+        ButtonMapping.Add(SVRA_ButtonAssistant.Trigger, Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger);
+        ButtonMapping.Add(SVRA_ButtonAssistant.B, Valve.VR.EVRButtonId.k_EButton_A);
+        ButtonMapping.Add(SVRA_ButtonAssistant.X, Valve.VR.EVRButtonId.k_EButton_A);
+        ButtonMapping.Add(SVRA_ButtonAssistant.Y, Valve.VR.EVRButtonId.k_EButton_A);
     }
 
     /*
