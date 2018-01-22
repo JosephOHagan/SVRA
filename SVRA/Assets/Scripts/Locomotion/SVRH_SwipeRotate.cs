@@ -15,7 +15,6 @@ public class SVRH_SwipeRotate : MonoBehaviour {
     Valve.VR.InteractionSystem.Player player;
 
     private readonly Vector2 mXAxis = new Vector2(1, 0);
-    private readonly Vector2 mYAxis = new Vector2(0, 1);
     private bool trackingSwipe = false;
     private bool checkSwipe = false;
     private const float mAngleRange = 30;
@@ -139,7 +138,6 @@ public class SVRH_SwipeRotate : MonoBehaviour {
     {
         Vector2 touchPadVector = rotationController.GetAxis(touchPad);
         Vector3 euler = transform.rotation.eulerAngles;
-        float angle = GetAngle(touchPadVector.y);
         euler.y += (touchPadVector.x + rotationDegrees);
         player.transform.rotation = Quaternion.Euler(euler);
     }

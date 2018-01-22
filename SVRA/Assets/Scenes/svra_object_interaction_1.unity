@@ -404,7 +404,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 420908, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.129
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 420908, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_LocalRotation.x
@@ -628,6 +628,7 @@ Prefab:
     - {fileID: 33066292694728576, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
     - {fileID: 23142521725466480, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
     - {fileID: 33341151155253730, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
+    - {fileID: 114704154697371260, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1109637750
@@ -921,8 +922,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b98847884e939734cabb6d3bb8f71a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupButton: 17
-  useButton: 2
 --- !u!135 &1807210846
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1078,8 +1077,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b98847884e939734cabb6d3bb8f71a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupButton: 17
-  useButton: 2
 --- !u!135 &1928850236
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1107,9 +1104,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5930f6eab4959d945b5a2e17d558506c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationXYZ: {x: 0, y: 90, z: 0}
+  fixedRotationXYZ: {x: 0, y: 180, z: 0}
+  incrementalRotationXYZ: {x: 0, y: 90, z: 0}
   fixedWorldScale: {x: 0.1, y: 0.1, z: 0.1}
   incrementalWorldScale: {x: 0.1, y: 0.1, z: 0.1}
+  fixedWorldMovement: {x: 0.1, y: 0.1, z: 0.1}
+  incrementalWorldMovement: {x: 0.1, y: 0.1, z: 0.1}
 --- !u!1 &2107845569
 GameObject:
   m_ObjectHideFlags: 0

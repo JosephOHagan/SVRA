@@ -9,10 +9,7 @@ public class BasicJetPack : MonoBehaviour {
 
         [SerializeField]
         private float thrustMultipler = 14f;
-
-        [SerializeField]
-        private float maxVelocity = 1f;
-
+       
         private void OnEnable()
         {
             controller = GetComponent<SteamVR_TrackedController>();
