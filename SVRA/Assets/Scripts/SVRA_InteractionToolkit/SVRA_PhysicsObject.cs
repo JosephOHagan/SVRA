@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class SVRA_PhysicsObject : SVRA_InteractiveObjectClass {
 
-    public Valve.VR.EVRButtonId pickupButton = Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger;
+    private Valve.VR.EVRButtonId pickupButton;
 
     public Rigidbody rigidBody;
 
@@ -22,6 +22,9 @@ public class SVRA_PhysicsObject : SVRA_InteractiveObjectClass {
     {       
         // Set the max angular velocity for a more realistic rotation
         rigidBody.maxAngularVelocity = 100;
+       
+        SetupButtonMapping();                                   // Todo: Do this once rather than for every object
+        pickupButton = GetButton(pickupButtonAliasIOC);
     }
 
     void FixedUpdate()
