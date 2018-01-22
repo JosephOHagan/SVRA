@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/* Todo Idea List
+ * - Move controller setup to separate entity (currently POC here)
+ *   that allows user to cycle between controller schemes   
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -43,7 +48,7 @@ public class SVRA_ParentedObject : SVRA_InteractiveObjectClass
     }
 
     public Valve.VR.EVRButtonId pickupButton;
-
+    
     public Transform InteractionPoint;
     public Rigidbody rigidBody;
     protected bool originalKinematicState;
@@ -51,14 +56,16 @@ public class SVRA_ParentedObject : SVRA_InteractiveObjectClass
 
     public bool replaceController = true;
 
+
+    private SVRA_ControllerSetup controller;
+
     void Reset()
     {
         rigidBody = this.GetComponent<Rigidbody>();
     }
 
     void Awake()
-    {
-
+    {     
         SetupButtonMapping();
         pickupButton = GetButton(pickupButtonAlias);
 
