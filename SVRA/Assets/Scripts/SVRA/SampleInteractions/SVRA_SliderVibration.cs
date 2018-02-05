@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SVRA_Slider : MonoBehaviour {
+public class SVRA_SliderVibration : MonoBehaviour {
 
     private SVRA_ControllerManager controller;
 
@@ -15,11 +15,13 @@ public class SVRA_Slider : MonoBehaviour {
     public float MAX_VIBRATION_STRENGTH = 0.2f;
     public float MAX_VIBRATION_DISTANCE = 0.03f;    
 
-    void Start () {
+    void Start ()
+    {
         previousPosition = transform.position;
     }
    
-    void Update () {
+    void Update ()
+    {
         newPosition = transform.position;
 
         if (controller != null)

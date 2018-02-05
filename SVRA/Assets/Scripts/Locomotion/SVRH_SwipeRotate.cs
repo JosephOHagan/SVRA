@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-// The idea here will be to implement a 90 degree rotation when
-// swipe motions are detected on the controllers
-public class SVRH_SwipeRotate : MonoBehaviour {
+// The idea here will be to implement a 90 degree rotation when swipe motions are detected on the controllers
+public class SVRH_SwipeRotate : MonoBehaviour
+{
 
     // public bool _mInverted = false;
     public const float VERTICAL_LIMIT = 60f;
