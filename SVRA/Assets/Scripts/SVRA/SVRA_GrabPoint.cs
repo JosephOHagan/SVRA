@@ -42,7 +42,7 @@ public class SVRA_GrabPoint : MonoBehaviour
         collisionDetection.transform.localScale = Vector3.one * touchRadius;                           
     }
 
-    void Update()
+    void FixedUpdate()
     {
         GameObject collidingObject = TouchedObject();
 
@@ -232,7 +232,7 @@ public class SVRA_GrabPoint : MonoBehaviour
         return collisionDetection.NearestObject();
     }
 
-    void DestroyConnection()
+    public void DestroyConnection()
     {
         firmlyGrabbed = false;
         Message("SVRAGrabStop", HeldObject());
