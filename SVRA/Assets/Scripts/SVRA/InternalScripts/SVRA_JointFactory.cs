@@ -21,15 +21,11 @@ public static class SVRA_JointFactory {
         {
             SetAngularDrive(joint, desiredObject.mass);
         }
-
-        /*
         
         if (grabbable.SnapToOrientation())
         {
             SetTargetRotation(joint, desiredObject, grabbable.rotation.localOrientation, controllerRotation);
-        }
-        
-        */
+        }       
 
         joint.connectedBody = desiredObject;
 
@@ -48,6 +44,7 @@ public static class SVRA_JointFactory {
         jointDrive.positionSpring = strength;
         jointDrive.positionDamper = damper;
         jointDrive.maximumForce = maxForce;
+
         return jointDrive;
     }
 
@@ -56,6 +53,7 @@ public static class SVRA_JointFactory {
         JointDrive jointDrive = baseJointDrive;
         jointDrive.positionSpring = strength;
         jointDrive.positionDamper = damper;
+
         return jointDrive;
     }
 
@@ -65,6 +63,7 @@ public static class SVRA_JointFactory {
         float gripStrength = 15000f * mass * multiplier;
         float gripDamper = 50f * mass * multiplier;
         float maxForce = 350f * mass * multiplier;
+
         joint.xDrive = LinearJointDrive(gripStrength, gripDamper, maxForce);
         joint.yDrive = LinearJointDrive(gripStrength, gripDamper, maxForce);
         joint.zDrive = LinearJointDrive(gripStrength, gripDamper, maxForce);
@@ -75,21 +74,17 @@ public static class SVRA_JointFactory {
         float multiplier = ANGULAR_DRIVE_MULTIPLIER;
         float gripStrength = 300f * mass * multiplier;
         float gripDamper = 10f * mass * multiplier;
+
         joint.rotationDriveMode = RotationDriveMode.XYAndZ;
         joint.angularYZDrive = AngularJointDrive(joint.angularYZDrive, gripStrength, gripDamper);
         joint.angularXDrive = AngularJointDrive(joint.angularXDrive, gripStrength, gripDamper);
     }
-
-    /*
      
     private static void SetTargetRotation(ConfigurableJoint joint, Rigidbody desiredObject, Vector3 desiredOrientation, Quaternion controllerRotation)
     {
-        // Undo current rotation, apply the desired orientation, and translate that to controller space but in reverse order because thats how Quaternions work
+        /* Undo current rotation, apply the desired orientation, and translate that to controller space */
         joint.targetRotation = controllerRotation;
         joint.targetRotation *= Quaternion.Euler(desiredOrientation);
         joint.targetRotation *= Quaternion.Inverse(desiredObject.transform.rotation);
     }
-
-    */
-
 }

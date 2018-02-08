@@ -10,6 +10,9 @@ public class SVRA_ColorToggle : MonoBehaviour
     [Tooltip("The toggle color")]
     public Color toggleColor;
 
+    // TODO : Add the ability to cycle through colors (color queue)
+    // public Color[] test;
+
     void Start()
     {
         originalColor = GetComponent<Renderer>().material.color;
@@ -23,4 +26,3 @@ public class SVRA_ColorToggle : MonoBehaviour
     }
 
 }
-

@@ -125,15 +125,6 @@ public class SVRA_GrabPoint : MonoBehaviour
             givenObject = grabConnection.ConnectedGameObject();
         }
 
-        /*
-
-        if (givenObject == null || givenObject.GetComponent<SVRA_Interactable>() == null)
-        {
-            return;
-        }
-
-        */
-
         if (controller.Pressed(SVRA_ControllerManager.ActionType.Interact))
         {
             lastInteractedObject = givenObject;
@@ -149,7 +140,6 @@ public class SVRA_GrabPoint : MonoBehaviour
 
     void BroadcastTouch(GameObject givenObject)
     {
-        // if (GameObjectsEqual(lastCollidingObject, givenObject))
         if (Object.ReferenceEquals(lastCollidingObject, givenObject))
         {
             return;
@@ -284,23 +274,4 @@ public class SVRA_GrabPoint : MonoBehaviour
         highlighter.AddHighlight();
     }
 
-    /*
-     
-    public bool TouchingSomething()
-    {
-        return TouchedObject() != null;
-    }
-
-    */
-
-    /*
-    
-    bool GameObjectsEqual(GameObject first, GameObject second)
-    {
-        if (first == null && second == null) { return true; }
-        if (first == null || second == null) { return false; }
-        return first.GetInstanceID() == second.GetInstanceID();
-    }
-
-    */
 }

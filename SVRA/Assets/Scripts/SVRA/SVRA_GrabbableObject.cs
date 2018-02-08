@@ -11,7 +11,7 @@ public class SVRA_GrabbableObject : SVRA_InteractiveObject
     {
         Disabled,
         ApplyGrip,
-        // ApplyGripAndOrientation
+        ApplyGripAndOrientation
     }
 
     [System.Serializable]
@@ -73,13 +73,10 @@ public class SVRA_GrabbableObject : SVRA_InteractiveObject
     {
         return rotation.mode != RotationMode.Disabled;
     }
-
-    /*
     
     public bool SnapToOrientation()
     {
         return rotation.mode == RotationMode.ApplyGripAndOrientation;
     }
     
-    */
 }

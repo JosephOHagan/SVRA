@@ -10,6 +10,9 @@ public class SVRA_MaterialToggle : MonoBehaviour
     [Tooltip("The toggle material")]
     public Material toggleMaterial;
 
+    // TODO : Add the ability to cycle through materials (material queue)
+    // public Material[] test;
+
     void Start()
     {
         originalMaterial = GetComponent<Renderer>().material;

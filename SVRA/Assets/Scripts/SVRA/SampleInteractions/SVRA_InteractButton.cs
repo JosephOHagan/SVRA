@@ -48,15 +48,11 @@ public class SVRA_InteractButton : MonoBehaviour {
             grabPoint.controller.Vibration(vibration.duration, vibration.strength);
         }
 
-        ButtonEventTest();
-
-        // GetComponent<SVRA_InteractiveObject>().enabled = false;
-        // StartCoroutine("Move");
+        ButtonEvent();
     }
 
-    public void ButtonEventTest()
+    public void ButtonEvent()
     {
-        // GetComponent<SVRA_InteractiveObject>().enabled = false;
         StartCoroutine("Move");
 
     }
@@ -85,7 +81,6 @@ public class SVRA_InteractButton : MonoBehaviour {
 
         direction *= -1;
         Reset();
-       // GetComponent<SVRA_InteractiveObject>().enabled = true;
     }
 
     void Increment ()
