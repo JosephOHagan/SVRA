@@ -30,13 +30,13 @@ public class SVRA_GrabbableObject : SVRA_InteractiveObject
         public RotationMode mode = RotationMode.ApplyGrip;
         [Tooltip("The local orientation that can be snapped to when grabbed.")]
         public Vector3 localOrientation = Vector3.zero;
-    }
-
-    // public Transform interactionPoint;
+    }    
 
     public Position snapPoint;
     public Rotation rotation;
-    private Vector3 grabCentre; 
+    private Vector3 grabCentre;
+
+    // public Transform interactionPoint;
 
     public Vector3 RotatedAnchor()
     {
@@ -45,9 +45,9 @@ public class SVRA_GrabbableObject : SVRA_InteractiveObject
 
     public void GrabFrom(Vector3 jointLocation)
     {
-        grabCentre = snapPoint.enable ? snapPoint.localPosition : (jointLocation - transform.position);     
-
-        /*
+        grabCentre = snapPoint.enable ? snapPoint.localPosition : (jointLocation - transform.position);
+        
+    /*
         
         // If there is an interaction point, snap object to that point
         if (interactionPoint != null)
@@ -61,7 +61,7 @@ public class SVRA_GrabbableObject : SVRA_InteractiveObject
             transform.localRotation = Quaternion.Inverse(interactionPoint.localRotation);
         }
 
-        */
+    */
     }
 
     public Vector3 WorldAnchorPosition()
