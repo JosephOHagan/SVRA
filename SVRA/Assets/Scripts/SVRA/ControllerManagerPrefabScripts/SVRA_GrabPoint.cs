@@ -42,9 +42,11 @@ public class SVRA_GrabPoint : MonoBehaviour
         collisionDetection.transform.localScale = Vector3.one * touchRadius;                           
     }
 
-    void FixedUpdate()
+    void Update()
     {
         GameObject collidingObject = TouchedObject();
+
+        // Update Sphere Collider Here
 
         BroadcastTouch(collidingObject);
         BroadcastGrab(collidingObject);
