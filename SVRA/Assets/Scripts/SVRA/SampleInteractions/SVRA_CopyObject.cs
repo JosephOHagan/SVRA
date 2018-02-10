@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SVRA_CopyObject : MonoBehaviour {
-
-    private bool toggleSpawn = false;
-
     public GameObject copyObject;
     public Transform spawnPoint;
 
