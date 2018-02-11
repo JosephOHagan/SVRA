@@ -6,34 +6,48 @@ public class SVRA_InteractButton : MonoBehaviour {
     public enum MotionAxis { X, Y, Z };
 
     [System.Serializable]
+    public class AnimationMotion
+    {
+        [Tooltip("Move on the x axis")]
+        public bool xAxis;
+
+        [Tooltip("Move on the y axis")]
+        public bool yAxis;
+
+        [Tooltip("Move on the z axis")]
+        public bool zAxis;
+
+        [Tooltip("Reverse the direction of movement")]
+        public bool reverseDirection;
+
+        [Tooltip("The distance to move")]
+        public float movementDistance = 0.02f;
+
+        [Tooltip("Speed of button animation")]
+        public float animationSpeed = 0.08f;
+    }
+
+
+    [System.Serializable]
     public class Vibration
     {
         public bool toggleVibration = false;
+
         [Tooltip("Duration of vibration (milliseconds)")]
         public int duration = 25;
+
         [Tooltip("Intensity of vibration")]
         public float strength = 0.4f;
     }
 
+    public AnimationMotion animationMotion;
     public Vibration vibration;
 
-    [Tooltip("Axis on which to move")]
-    public MotionAxis motionAxis;
-
-    [Tooltip("Reverse the direction of movement")]
-    public bool reverseDirection;
-
-    [Tooltip("The distance to move")]
-    public float movementDistance = 0.02f;
-
-    [Tooltip("Speed of button animation")]
-    public float animationSpeed = 0.08f;
-  
     private float distance;
     private int direction = 1;
 
     void Start () {
-        if (reverseDirection)
+        if (animationMotion.reverseDirection)
         {
             direction *= -1;
         }
@@ -85,9 +99,14 @@ public class SVRA_InteractButton : MonoBehaviour {
 
     void Increment ()
     {     
-        float increment = Time.deltaTime * animationSpeed;
+        float increment = Time.deltaTime * animationMotion.animationSpeed;
         increment = Mathf.Min(increment, distance);
 
+        transform.Translate(increment * direction * BoolToInt(animationMotion.xAxis),
+            increment * direction * BoolToInt(animationMotion.yAxis),
+            increment * direction * BoolToInt(animationMotion.zAxis));
+   
+    /*
         switch (motionAxis)
         {
             case MotionAxis.X:
@@ -100,12 +119,18 @@ public class SVRA_InteractButton : MonoBehaviour {
                 transform.Translate(0, 0, increment * direction);
                 break;
         }
+    */
 
         distance -= increment;
     }
 
+    int BoolToInt(bool input)
+    {
+        return input ? 1 : 0;
+    }
+
     void Reset()
     {
-        distance = movementDistance;
+        distance = animationMotion.movementDistance;
     }
 }
