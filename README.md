@@ -22,10 +22,13 @@ TODO : Simple example showing interactive objects via buttons and changing colou
 
 # Some Instructions (I'll make a PDF version sometime)
 ## Key Scripts
-* SVRA_GrabbableObject: Makes an object grabbable. Attach to objects you wish to pick up and interact with.
-  * 
+* SVRA_GrabbableObject: Makes an object grabbable. 
+  * Attach to objects you wish to pick up and interact with
+  
 * SVRA_InteractiveObject: Makes an object interactive and open to interaction scripts.
-* SVRA_EventBridge: On a specified event (interaction start, grab start, etc.) trigger some attached function(s). [Possibly add link to additional example Google doc with screenshots to make clearer]
+
+* SVRA_EventBridge: On a specified event (interaction start, grab start, etc.) trigger some attached function(s). 
+  * Possibly add link to additional example Google doc with screenshots to make clearer
 
 ## Other Scripts
 * SVRA_ObjectSnapZone: Used with SVRA_ObjectSnapZoneLocation. 
