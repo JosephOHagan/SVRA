@@ -25,38 +25,9 @@ public class SVRA_ProjectileShooter : MonoBehaviour {
         public float projectileCooldown = 0.2f;
 
         public ProjectileFiringCharacteristics greenAxis;
-
-        public ProjectileFiringCharacteristics blueAxis;        
-        
+        public ProjectileFiringCharacteristics blueAxis;                
         public ProjectileFiringCharacteristics redAxis;
-        /*
-                [Tooltip("Fire in the direction of the green axis")]
-                public bool upDirection = true;
 
-                [Tooltip("Apply a firing force in the direction of the green axis")]
-                public bool upDirectionForce = true;
-
-                [Tooltip("Distance to offset the firing position by on the green axis")]
-                public float upOffset = 0.2f;
-
-                [Tooltip("Fire in the direction of the blue axis")]
-                public bool forwardDirection = false;
-
-                [Tooltip("Apply a firing force in the direction of the blue axis")]
-                public bool forwardDirectionForce = false;
-
-                [Tooltip("Distance to offset the firing position by on the blue axis")]
-                public float forwardOffset = 0f;
-
-                [Tooltip("Fire in the direction of the red axis")]
-                public bool rightDirection = false;
-
-                [Tooltip("Apply a firing force in the direction of the red axis")]
-                public bool rightDirectionForce = false;
-
-                [Tooltip("Distance to offset the firing position by on the red axis")]
-                public float rightOffset = 0f;
-        */
     }
 
     private bool projectileFiring = false;
