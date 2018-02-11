@@ -11,7 +11,8 @@ A simple default setup of the controllers and SteamVR required prefabs on an emp
 A random (somewhat chaotic) collection of all the potential interactions SVRA is capable of.
 
 ## svra_projectile_range_test
-An example featuring 3 floating targets of varying speeds in which the user is tasked to hit with cubes. Showcases the object snap zone and hover scripts in particular.
+An example featuring 3 floating targets of varying speeds in which the user is tasked to hit with cubes. 
+* Showcases SVRA_ObjectSnapZone and SVRA_ObjectSnapZoneLocation scripts
 
 ## svra_example_grabbable_objects
 TODO : Simple example showing grabbable objects
@@ -22,8 +23,24 @@ TODO : Simple example showing interactive objects via buttons and changing colou
 # Some Instructions (I'll make a PDF version sometime)
 ## Key Scripts
 * SVRA_GrabbableObject: Makes an object grabbable. Attach to objects you wish to pick up and interact with.
+  * 
 * SVRA_InteractiveObject: Makes an object interactive and open to interaction scripts.
 * SVRA_EventBridge: On a specified event (interaction start, grab start, etc.) trigger some attached function(s). [Possibly add link to additional example Google doc with screenshots to make clearer]
+
+## Other Scripts
+* SVRA_ObjectSnapZone: Used with SVRA_ObjectSnapZoneLocation. 
+  * Setup object to setup snap zone on 
+  * Create a copy of the object to represent the snap zone location (see SVRA_ObjectSnapZoneLocation for setting up the copy object)
+  * Attach the SVRA_ObjectSnapZone script to the original object
+    * HoverCharacteristics: Can be used to make the object oscillate for a set distance, speed and direction 
+  
+* SVRA_ObjectSnapZoneLocation: Used with SVRA_ObjectSnapZone. 
+  * On the object copy (mentioned above) remove any rigid bodies and additional scripts attached to the object
+  * Disable the Mesh Renderer of the object
+  * Enable the "Is Trigger" checkbox of the collider of the object
+  * Position the object where you want the object to snap to
+  * Attach the SVRA_ObjectSnapZoneLocation script
+  * Drag and drop the SVRA_ObjectSnapZone object into the "Snap Zone Transform" setting
 
 # Prefab Guide
 ## ControllerMangerPrefab
