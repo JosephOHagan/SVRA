@@ -15,7 +15,8 @@ An example featuring 3 floating targets of varying speeds in which the user is t
 * Showcases SVRA_ObjectSnapZone and SVRA_ObjectSnapZoneLocation scripts
 
 ## svra_example_grabbable_objects
-TODO : Simple example showing grabbable objects
+A very simple example scene containing four objects setup to be grabbable.
+* Showcases SVRA_Grabbable script
 
 ## svra_example_interactive_objects
 TODO : Simple example showing interactive objects via buttons and changing colours / materials (possibly enable grabbable script as well)
