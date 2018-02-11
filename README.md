@@ -14,7 +14,7 @@ A random (somewhat chaotic) collection of all the potential interactions SVRA is
 An example featuring 3 floating targets of varying speeds in which the user is tasked to hit with cubes. 
 * Showcases SVRA_ObjectSnapZone and SVRA_ObjectSnapZoneLocation scripts
 
-## svra_example_grabbable_objects
+## svra_grabbable_object_example
 A very simple example scene containing four objects setup to be grabbable.
 * Showcases SVRA_Grabbable script
 
