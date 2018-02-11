@@ -18,8 +18,9 @@ An example featuring 3 floating targets of varying speeds in which the user is t
 A very simple example scene containing four objects setup to be grabbable.
 * Showcases SVRA_Grabbable script
 
-## svra_example_interactive_objects
-TODO : Simple example showing interactive objects via buttons and changing colours / materials (possibly enable grabbable script as well)
+## svra_interaction_example
+I too have a red button and my button works!
+* Showcases SVRA_InteractiveObject and SVRA_EventBridge scripts for enabling some other scripts function (ToggleMaterial in this example) by interacting with an object 
 
 # Some Instructions (I'll make a PDF version sometime)
 ## Key Scripts
