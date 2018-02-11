@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114795109089194168}
   - component: {fileID: 114928946715469934}
   m_Layer: 0
-  m_Name: ControllerManager
+  m_Name: ControllerManagerPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

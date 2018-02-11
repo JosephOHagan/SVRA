@@ -105,21 +105,6 @@ public class SVRA_InteractButton : MonoBehaviour {
         transform.Translate(increment * direction * BoolToInt(animationMotion.xAxis),
             increment * direction * BoolToInt(animationMotion.yAxis),
             increment * direction * BoolToInt(animationMotion.zAxis));
-   
-    /*
-        switch (motionAxis)
-        {
-            case MotionAxis.X:
-                transform.Translate(increment * direction, 0, 0);
-                break;
-            case MotionAxis.Y:
-                transform.Translate(0, increment * direction, 0);
-                break;
-            case MotionAxis.Z:
-                transform.Translate(0, 0, increment * direction);
-                break;
-        }
-    */
 
         distance -= increment;
     }
