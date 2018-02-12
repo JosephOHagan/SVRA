@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class SVRA_InteractButton : MonoBehaviour {
 
-    public enum MotionAxis { X, Y, Z };
-
     [System.Serializable]
     public class AnimationMotion
     {
@@ -52,8 +50,8 @@ public class SVRA_InteractButton : MonoBehaviour {
             direction *= -1;
         }
 
-        Reset();	
-	}
+        distance = animationMotion.movementDistance;
+    }
 
     void SVRAInteractionStart(SVRA_GrabPoint grabPoint)
     {
@@ -85,7 +83,7 @@ public class SVRA_InteractButton : MonoBehaviour {
     IEnumerator MoveBack ()
     {
         direction *= -1;
-        Reset();
+        distance = animationMotion.movementDistance;
 
         while (distance > 0)
         {
@@ -94,7 +92,7 @@ public class SVRA_InteractButton : MonoBehaviour {
         }
 
         direction *= -1;
-        Reset();
+        distance = animationMotion.movementDistance;
     }
 
     void Increment ()
@@ -112,10 +110,5 @@ public class SVRA_InteractButton : MonoBehaviour {
     int BoolToInt(bool input)
     {
         return input ? 1 : 0;
-    }
-
-    void Reset()
-    {
-        distance = animationMotion.movementDistance;
     }
 }
