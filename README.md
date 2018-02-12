@@ -30,7 +30,7 @@ I too have a red button and my button works!
 * SVRA_InteractiveObject: Makes an object interactive and open to interaction scripts.
 
 * SVRA_EventBridge: On a specified event (interaction start, grab start, etc.) trigger some attached function(s). 
-  * Possibly add link to additional example Google doc with screenshots to make clearer
+  * https://docs.google.com/document/d/1tY_tQTMylLhXaqLDtHOcNoCwF-T6UQRthw3m4NSzVwE/edit?usp=sharing
 
 ## Other Scripts
 * SVRA_ObjectSnapZone: Used with SVRA_ObjectSnapZoneLocation. 
