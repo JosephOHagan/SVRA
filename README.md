@@ -26,7 +26,11 @@ I too have a red button and my button works!
 ## Key Scripts
 * SVRA_GrabbableObject: Makes an object grabbable. 
   * Attach to objects you wish to pick up and interact with
-  
+  * Attributes:
+    * Highlight Effect: Select the highlight script (or none) to be applied to the object.
+    * Snap Point: By default snaps the controller position to the centre of the object on pickup. Local Position can be used to change the snap position.
+    * Rotation: Enable or disable rotation for the joint which connects the controller to the grabbed object. Apply Grip And Orientation will orientate the object to the specified Local Orientation.
+	
 * SVRA_InteractiveObject: Makes an object interactive and open to interaction scripts.
 
 * SVRA_EventBridge: On a specified event (interaction start, grab start, etc.) trigger some attached function(s). 
@@ -66,4 +70,4 @@ Used to setup the controllers, setup the grip and interaction button and object 
 Used to display the current frame rate of the scene
 ### Setup:
 * Drag and drop into scene
-* Toggle on and off with 'f' key on keyboard
+* Toggle on and off with f key on keyboard
