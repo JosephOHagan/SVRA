@@ -102,7 +102,11 @@ The following are a list of challenge scenes which are setup but have none of th
   * Setup the fuction in the event bridge to trigger the scene change on the specified event
 
 * SVRA_ProjectileShooter: A simple projectile shooter system
-
+  * Attach to the object to fire the projectile from
+  * Drag a prefab or gameobject into the "Projectile" option in the Inspector window
+  * The projectile characteristics determine the direction, angle, frequency, speed and size of the projectile that is fired
+  * The "Vibration" toggle is used to determine whether or not to trigger a small vibration burst on firing the projectile
+  
 * SVRA_PlayerResize: Resizes the play area and player to specfied parameter
   * Attach to the object to trigger the size change on interacting with
   * Setup the fuction in the event bridge to trigger the resize on the specified event
