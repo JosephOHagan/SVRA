@@ -178,8 +178,8 @@ public class SVRA_ControllerManager : MonoBehaviour {
                 return SteamVR_Controller.ButtonMask.Grip;
             case InputButton.Trigger:
                 return SteamVR_Controller.ButtonMask.Trigger;
-            case InputButton.Both:
-                return SteamVR_Controller.ButtonMask.Touchpad;
+            // case InputButton.Both:
+            //    return SteamVR_Controller.ButtonMask.Touchpad;
             default:
             case InputButton.None:
                 return (1ul << (int) Valve.VR.EVRButtonId.k_EButton_Max + 1);
