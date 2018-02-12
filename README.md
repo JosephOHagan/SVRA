@@ -14,12 +14,13 @@ A random (somewhat chaotic) collection of all the potential interactions SVRA is
 An example featuring 3 floating targets of varying speeds in which the user is tasked to hit with cubes. 
 * Showcases SVRA_ObjectSnapZone and SVRA_ObjectSnapZoneLocation scripts
 
-## svra_example_grabbable_objects
+## svra_grabbable_object_example
 A very simple example scene containing four objects setup to be grabbable.
 * Showcases SVRA_Grabbable script
 
-## svra_example_interactive_objects
-TODO : Simple example showing interactive objects via buttons and changing colours / materials (possibly enable grabbable script as well)
+## svra_interaction_example
+I too have a red button and my button works!
+* Showcases SVRA_InteractiveObject and SVRA_EventBridge scripts for enabling some other scripts function (ToggleMaterial in this example) by interacting with an object 
 
 # Some Instructions (I'll make a PDF version sometime)
 ## Key Scripts
@@ -29,7 +30,7 @@ TODO : Simple example showing interactive objects via buttons and changing colou
 * SVRA_InteractiveObject: Makes an object interactive and open to interaction scripts.
 
 * SVRA_EventBridge: On a specified event (interaction start, grab start, etc.) trigger some attached function(s). 
-  * Possibly add link to additional example Google doc with screenshots to make clearer
+  * https://docs.google.com/document/d/1tY_tQTMylLhXaqLDtHOcNoCwF-T6UQRthw3m4NSzVwE/edit?usp=sharing
 
 ## Other Scripts
 * SVRA_ObjectSnapZone: Used with SVRA_ObjectSnapZoneLocation. 
