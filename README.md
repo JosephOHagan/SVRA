@@ -10,7 +10,7 @@ A simple default setup of the controllers and SteamVR required prefabs on an emp
 ## svra_object_playground
 A random (somewhat chaotic) collection of all the potential interactions SVRA is capable of.
 
-## svra_projectile_range_test
+## svra_projectile_range_example
 An example featuring 3 floating targets of varying speeds in which the user is tasked to hit with cubes. 
 * Showcases SVRA_ObjectSnapZone and SVRA_ObjectSnapZoneLocation scripts
 
@@ -20,7 +20,26 @@ A very simple example scene containing four objects setup to be grabbable.
 
 ## svra_interaction_example
 I too have a red button and my button works!
-* Showcases SVRA_InteractiveObject and SVRA_EventBridge scripts for enabling some other scripts function (ToggleMaterial in this example) by interacting with an object 
+* Showcases SVRA_InteractiveObject and SVRA_EventBridge scripts for enabling some other script's function (ToggleMaterial in this example) by interacting with an object 
+
+# Scene Ideas
+The following are a list of potential scene ideas in case you need some ideas to get started:
+* Carnival games
+* Target range
+* Basketball hoop
+* 10 pin bowling
+* 100 pin bowling
+* 10 pin bowling hard mode - the pins move around or hover
+* Big red button simulator
+
+# Challenge Scenes
+The following are a list of challenge scenes which are setup but have none of the script logic attached. Can you make them functional?
+## The Drawer Challenge : svra_drawer_challenge
+* Test your knowledge of the Unity joint system! 
+* This scene contains a drawer to setup as you expect a drawer to operate. 
+* You pull the handle and the drawer comes out and you push it back in and it goes back in. 
+* You know because its a drawer. 
+* The drawer itself need not operate with gravity but bonus points if it does.
 
 # Some Instructions (I'll make a PDF version sometime)
 ## Key Scripts
