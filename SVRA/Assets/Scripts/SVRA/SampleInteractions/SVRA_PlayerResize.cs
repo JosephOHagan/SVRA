@@ -18,20 +18,11 @@ public class SVRA_PlayerResize : MonoBehaviour {
         playArea = GetComponentInParent<SteamVR_PlayArea>();
         originalScale = playArea.transform.localScale;
     }
-
-    void Start () {       
-        if (sizeToggle)
-        {
-            ResizePlayArea();
-        }
-
-        sizeToggle = !sizeToggle;
-    }
-	
+    
 	/* Resize the play area to the specified value */
 	public void ResizePlayArea () {
-        playArea.transform.localScale = sizeToggle ? toggleScale : originalScale;
-
+        sizeToggle = !sizeToggle;
+        playArea.transform.localScale = sizeToggle ? toggleScale : originalScale;       
     }
     
 }
