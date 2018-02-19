@@ -9,6 +9,7 @@ public interface SVRA_HighlightEffect
     void Stop(GameObject gameObject);
 }
 
+[AddComponentMenu("")]  // Internally used script so hide from user in the Inspector window
 public class SVRA_HighlightObject : MonoBehaviour
 {    
     private SVRA_HighlightEffect effect = null;

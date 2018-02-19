@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+[AddComponentMenu("")]  // Internally used script so hide from user in the Inspector window
 public class SVRA_CollisionDetection : MonoBehaviour {
     
     /* List of interactive objects within collision radius */
@@ -43,7 +44,7 @@ public class SVRA_CollisionDetection : MonoBehaviour {
 
         foreach (SVRA_InteractiveObject component in collidingObjects)
         {            
-            /* Check for new closest distance */
+            // Check for new closest distance
             if (Vector3.Distance(transform.position, component.transform.position) < closestDistance)
             {
                 touchedObject = component.gameObject;
@@ -59,7 +60,7 @@ public class SVRA_CollisionDetection : MonoBehaviour {
     /* Verify that a GameObject contains the SVRA_InteractiveObject script */
     SVRA_InteractiveObject ValidActiveComponent(GameObject gameObject)
     {
-        /* On Destroy() a GameObject may set to null occasionally so handle that case*/ 
+        // On Destroy() a GameObject may set to null occasionally so handle that case 
         if (gameObject == null)
         {
             return null;

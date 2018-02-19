@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[AddComponentMenu("")]  // Internally used script so hide from user in the Inspector window
 public class SVRA_GrabConnection : MonoBehaviour {
 
     public GameObject jointObject;

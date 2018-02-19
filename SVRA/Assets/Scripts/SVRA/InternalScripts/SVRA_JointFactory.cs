@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 
+[AddComponentMenu("")]  // Internally used script so hide from user in the Inspector window
 public static class SVRA_JointFactory {
 
-    /* Change these in code if you need a stronger or weaker grip */
+    // Alter these for a stronger or weaker grip
     public static float LINEAR_DRIVE_MULTIPLIER = 1f;
     public static float ANGULAR_DRIVE_MULTIPLIER = 1f;
 
@@ -82,7 +83,7 @@ public static class SVRA_JointFactory {
      
     private static void SetTargetRotation(ConfigurableJoint joint, Rigidbody desiredObject, Vector3 desiredOrientation, Quaternion controllerRotation)
     {
-        /* Undo current rotation, apply the desired orientation, and translate that to controller space */
+        // Undo current rotation, apply the desired orientation, and translate that to controller space
         joint.targetRotation = controllerRotation;
         joint.targetRotation *= Quaternion.Euler(desiredOrientation);
         joint.targetRotation *= Quaternion.Inverse(desiredObject.transform.rotation);

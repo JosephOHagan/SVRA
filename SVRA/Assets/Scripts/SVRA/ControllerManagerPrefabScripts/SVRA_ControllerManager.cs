@@ -1,14 +1,10 @@
-﻿/* 
- * TODO : Rework these for all buttons (ButtonHelper) 
- * TODO : Add teleportation button and action 
- */
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
 delegate bool InputFunction(ulong key);
 
+[AddComponentMenu("")]  // Internally used script so hide from user in the Inspector window
 [DisallowMultipleComponent]
 public class SVRA_ControllerManager : MonoBehaviour {
 
