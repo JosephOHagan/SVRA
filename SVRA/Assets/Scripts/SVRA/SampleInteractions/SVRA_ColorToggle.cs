@@ -13,10 +13,9 @@ public class SVRA_ColorToggle : MonoBehaviour
     // TODO : Add the ability to cycle through colors (color queue)
     // public Color[] test;
 
-    void Start()
+    private void Awake()
     {
         originalColor = GetComponent<Renderer>().material.color;
-        ToggleColor();
     }
 
     public void ToggleColor()
