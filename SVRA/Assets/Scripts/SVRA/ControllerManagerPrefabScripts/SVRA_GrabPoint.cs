@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[AddComponentMenu("")]  // Internally used script so hide from user in the Inspector window
+[AddComponentMenu("")]              // Internally used script so hide from user in the Inspector window
 [DisallowMultipleComponent]
 public class SVRA_GrabPoint : MonoBehaviour
 {

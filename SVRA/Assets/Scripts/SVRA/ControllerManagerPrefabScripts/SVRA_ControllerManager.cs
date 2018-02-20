@@ -55,13 +55,13 @@ public class SVRA_ControllerManager : MonoBehaviour {
     public SteamVR_TrackedObject trackedControllerObject;
 
     [Tooltip("The action assigned to the grip button")]
-    public ActionType gripButton = ActionType.None;
+    public ActionType gripButton = ActionType.Grab;
 
     [Tooltip("The action assigned to the trigger button")]
-    public ActionType triggerButton = ActionType.None;
+    public ActionType triggerButton = ActionType.Grab;
 
     [Tooltip("The action assigned to the trackpad")]
-    public ActionType touchpadButton = ActionType.None;
+    public ActionType touchpadButton = ActionType.Interact;
 
     [Tooltip("The action assigned to the application menu button")]
     public ActionType applicationMenuButton = ActionType.None;
