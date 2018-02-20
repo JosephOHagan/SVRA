@@ -25,7 +25,6 @@ public class SVRA_InteractButton : MonoBehaviour {
         public float animationSpeed = 0.08f;
     }
 
-
     [System.Serializable]
     public class Vibration
     {
@@ -41,10 +40,16 @@ public class SVRA_InteractButton : MonoBehaviour {
     public AnimationMotion animationMotion;
     public Vibration vibration;
 
+    public bool fullAnimation = true;
+
     private float distance;
     private int direction = 1;
 
-    void Start () {
+    
+    private bool buttonOn = false;
+
+    void Start()
+    { 
         if (animationMotion.reverseDirection)
         {
             direction *= -1;
@@ -65,8 +70,31 @@ public class SVRA_InteractButton : MonoBehaviour {
 
     public void ButtonEvent()
     {
-        StartCoroutine("Move");
+        if (fullAnimation)
+        {
+            StartCoroutine("FullAnimation");
+        }
+        else if (buttonOn)
+        {
+            buttonOn = false;
+            StartCoroutine("MoveBack");
+        }
+        else
+        {
+            buttonOn = true;
+            StartCoroutine("Move");
+        }
+    }
 
+    IEnumerator FullAnimation()
+    {
+        while (distance > 0)
+        {
+            Increment();
+            yield return null;
+        }
+
+        yield return StartCoroutine("MoveBack");
     }
 
     IEnumerator Move()
@@ -77,7 +105,7 @@ public class SVRA_InteractButton : MonoBehaviour {
             yield return null;
         }
 
-        yield return StartCoroutine("MoveBack");
+        yield return null;
     }
 
     IEnumerator MoveBack ()
