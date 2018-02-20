@@ -41,4 +41,12 @@ public class SVRA_TriggerAudio : MonoBehaviour
             audioPlaying = true;
         }
     }
+
+    public void StopAudio()
+    {
+        if (audioPlaying)
+        {
+            audio.Stop();
+        }
+    }
 }
