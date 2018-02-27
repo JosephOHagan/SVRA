@@ -302,6 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc37e0ae9d3961e499fb03303b65beac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullAnimation: 1
   animationMotion:
     xAxis: 0
     yAxis: 0
@@ -617,6 +618,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &164113624
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _EnableExternalAlpha: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &191545973
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,7 +859,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9385b43db10d28c4d995ac22915f9693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toggleMaterial: {fileID: 2100000, guid: d6a9a9c73ecea72468cc36c101dcf937, type: 2}
+  permanentChange: 0
+  materialList: []
 --- !u!23 &238667889
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1129,7 +1164,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5097a6ae8e415d0478f4e91873aeede4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toggleColor: {r: 1, g: 0.4117647, b: 0.7058824, a: 1}
+  permanentChange: 0
+  colorList:
+  - {r: 0.051092133, g: 0.44389477, b: 0.77205884, a: 0}
 --- !u!23 &253541644
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1425,6 +1462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc37e0ae9d3961e499fb03303b65beac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullAnimation: 1
   animationMotion:
     xAxis: 1
     yAxis: 0
@@ -1719,7 +1757,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 253541643}
-        m_MethodName: ToggleColor
+        m_MethodName: ChangeColor
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1820,7 +1858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b2412f4855020488295308f0ffb912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactToggle: 1
+  startInteractive: 0
 --- !u!1 &410416116
 GameObject:
   m_ObjectHideFlags: 0
@@ -2183,7 +2221,7 @@ BoxCollider:
   m_GameObject: {fileID: 457513537}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2384,7 +2422,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f35fa249b5008c44ac2998be6f82d4d, type: 2}
   m_IsPrefabParent: 0
---- !u!43 &675954044
+--- !u!43 &636928724
 Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -2830,11 +2868,26 @@ Prefab:
     - target: {fileID: 114928946715469934, guid: 4101a9e587a911647937dbb559fa966f,
         type: 2}
       propertyPath: holdRadius
-      value: 0
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 114928946715469934, guid: 4101a9e587a911647937dbb559fa966f,
         type: 2}
       propertyPath: visibleCollider
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114795109089194168, guid: 4101a9e587a911647937dbb559fa966f,
+        type: 2}
+      propertyPath: gripButton
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114795109089194168, guid: 4101a9e587a911647937dbb559fa966f,
+        type: 2}
+      propertyPath: triggerButton
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114795109089194168, guid: 4101a9e587a911647937dbb559fa966f,
+        type: 2}
+      propertyPath: touchpadButton
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3123,7 +3176,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9385b43db10d28c4d995ac22915f9693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toggleMaterial: {fileID: 2100000, guid: d6a9a9c73ecea72468cc36c101dcf937, type: 2}
+  permanentChange: 0
+  materialList:
+  - {fileID: 2100000, guid: 7913bb9eb02ce23459ea326cf3d2aa0b, type: 2}
 --- !u!23 &780906012
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3692,7 +3747,7 @@ GameObject:
   - component: {fileID: 945305706}
   - component: {fileID: 945305707}
   m_Layer: 0
-  m_Name: Chest Cube
+  m_Name: Hover Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3855,7 +3910,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 420908, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 420908, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_LocalRotation.z
@@ -3863,7 +3918,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 420908, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 420908, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_RootOrder
@@ -3872,14 +3927,14 @@ Prefab:
     - target: {fileID: 3380982, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 675954044}
+      objectReference: {fileID: 636928724}
     - target: {fileID: 2348914, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1523277878}
+      objectReference: {fileID: 164113624}
     - target: {fileID: 420908, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 420908, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_LocalScale.x
@@ -4227,7 +4282,7 @@ GameObject:
   - component: {fileID: 1023042891}
   - component: {fileID: 1023042890}
   m_Layer: 0
-  m_Name: Chest Cube Snap Position
+  m_Name: Hover Cube Snap Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5062,11 +5117,31 @@ Prefab:
     - target: {fileID: 114928946715469934, guid: 4101a9e587a911647937dbb559fa966f,
         type: 2}
       propertyPath: holdRadius
-      value: 0.1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 114928946715469934, guid: 4101a9e587a911647937dbb559fa966f,
         type: 2}
       propertyPath: visibleCollider
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114795109089194168, guid: 4101a9e587a911647937dbb559fa966f,
+        type: 2}
+      propertyPath: gripButton
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114795109089194168, guid: 4101a9e587a911647937dbb559fa966f,
+        type: 2}
+      propertyPath: triggerButton
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114795109089194168, guid: 4101a9e587a911647937dbb559fa966f,
+        type: 2}
+      propertyPath: touchpadButton
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114928946715469934, guid: 4101a9e587a911647937dbb559fa966f,
+        type: 2}
+      propertyPath: toggleGrabMode
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5297,7 +5372,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 780906011}
-        m_MethodName: ToggleMaterial
+        m_MethodName: ChangeMaterial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5914,7 +5989,7 @@ GameObject:
   - component: {fileID: 1379140277}
   - component: {fileID: 1379140283}
   m_Layer: 0
-  m_Name: Safety Cube
+  m_Name: Chest Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6031,7 +6106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa3d1dd729cf64c47893aba5b15c1295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabToggle: 0
+  startGrabbable: 0
 --- !u!1 &1432933050
 GameObject:
   m_ObjectHideFlags: 0
@@ -6360,39 +6435,6 @@ Transform:
   m_Father: {fileID: 541112239}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1523277878
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: Sprites/Default
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - PixelSnap: 0
-    - _EnableExternalAlpha: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1525027601
 GameObject:
   m_ObjectHideFlags: 0
@@ -8025,6 +8067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc37e0ae9d3961e499fb03303b65beac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullAnimation: 1
   animationMotion:
     xAxis: 0
     yAxis: 0
@@ -8532,7 +8575,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9385b43db10d28c4d995ac22915f9693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toggleMaterial: {fileID: 2100000, guid: d6a9a9c73ecea72468cc36c101dcf937, type: 2}
+  permanentChange: 0
+  materialList: []
 --- !u!23 &2143888475
 MeshRenderer:
   m_ObjectHideFlags: 0
