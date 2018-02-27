@@ -8,7 +8,7 @@ public class SVRA_ColorToggle : MonoBehaviour
     public bool permanentChange = false;
 
     [Tooltip("The list of colors to change between")]
-    public Color[] colorList;
+    public Color[] colorList = new Color[1];
 
     private bool singleColorToggle = true;
     private Color originalColor;

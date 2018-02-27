@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SVRA_InteractiveObject))]
 public class SVRA_InteractSwitch : MonoBehaviour {
 
-    public enum RotationAxis { X, Y, Z };
-
-    public RotationAxis rotationAxis;
     private int switchDirection = -1;
 
+    public enum RotationAxis { X, Y, Z };
+    public RotationAxis rotationAxis;
+    
     public void Flip()
     {
         Vector3 rotation = transform.eulerAngles;

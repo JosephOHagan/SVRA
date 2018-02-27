@@ -4,7 +4,7 @@ using UnityEngine;
 [AddComponentMenu("")]  // Internally used script so hide from user in the Inspector window
 public class SVRA_CollisionDetection : MonoBehaviour {
     
-    /* List of interactive objects within collision radius */
+    // List of interactive objects within collision radius
     private List<SVRA_InteractiveObject> collidingObjects = new List<SVRA_InteractiveObject>();
 
     void Start()

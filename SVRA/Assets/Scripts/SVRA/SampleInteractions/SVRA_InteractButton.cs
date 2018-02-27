@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(SVRA_InteractiveObject))]
 public class SVRA_InteractButton : MonoBehaviour {
 
     [System.Serializable]
@@ -37,17 +38,14 @@ public class SVRA_InteractButton : MonoBehaviour {
         public float strength = 0.4f;
     }
 
-    public AnimationMotion animationMotion;
-    public Vibration vibration;
+    private bool buttonOn = false;
+    private float distance;
+    private int direction = 1;   
 
     public bool fullAnimation = true;
-
-    private float distance;
-    private int direction = 1;
-
+    public AnimationMotion animationMotion;
+    public Vibration vibration;
     
-    private bool buttonOn = false;
-
     void Start()
     { 
         if (animationMotion.reverseDirection)

@@ -8,8 +8,8 @@ public class SVRA_MaterialToggle : MonoBehaviour
     public bool permanentChange = false;
 
     [Tooltip("The list of materials to change between")]
-    public Material[] materialList;
-    
+    public Material[] materialList = new Material[1];
+
     private bool singleMaterialToggle = true;
     private Material originalMaterial;
     private Queue materialQueue = new Queue();
