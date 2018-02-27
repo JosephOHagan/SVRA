@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114795109089194168}
   - component: {fileID: 114928946715469934}
   m_Layer: 0
-  m_Name: ControllerManagerPrefab
+  m_Name: ControllerSetupPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,9 +52,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef537080fac5f845aa3c5caa569cf15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gripInput: 0
-  interactionInput: 1
   trackedControllerObject: {fileID: 0}
+  gripButton: 0
+  triggerButton: 0
+  touchpadButton: 1
+  applicationMenuButton: 2
+  virtualTouchpadButtons:
+    threshold: 0.3
+    upTouchpadButton: 2
+    downTouchpadButton: 2
+    leftTouchpadButton: 2
+    rightTouchpadButton: 2
+    centreTouchpadButton: 2
 --- !u!114 &114928946715469934
 MonoBehaviour:
   m_ObjectHideFlags: 1
