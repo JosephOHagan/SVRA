@@ -1,16 +1,3 @@
-﻿/* TODO : Change highlighter system to version 2
- *    
- *    Away from class selection model
- *  
- *    User will select highlight checkbox then can pick either
- *    default lighten, default darken, select a highlight materal / shader
- *    or set the Color() to highlight by
- *    
- *    Might have to make more generic than "Color tint" -> "Material tint"
- *    
- *    Possibly leave both implemented ?
- */
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
