@@ -5,9 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/svra_object_playground.unity
     guid: f720ae698c08cc24bb352d3a9c9debb7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/svra_projectile_range_example.unity
     guid: 139461c663a1f4d4b9ed0efbfebef64c
+  - enabled: 1
+    path: Assets/Scenes/TrainingScenesSolutions/svra_07_scene_transition.unity
+    guid: afb94bf58ba48cb4f9a9d5f547638c0c
+  - enabled: 1
+    path: Assets/Scenes/TrainingScenesSolutions/svra_06_target_range.unity
+    guid: 31215c253fc982a489c961a625353eaa
