@@ -20,7 +20,7 @@ public class SVRA_HoverSnapZone : MonoBehaviour {
         public float oscillationSpeed = 0.3f;
 
         [Tooltip("The oscillation distance")]
-        public float oscillationDistance = 0.01f;
+        public float oscillationDistance = 0.1f;
     }
 
     public HoverCharacteristics hoverCharacteristics;

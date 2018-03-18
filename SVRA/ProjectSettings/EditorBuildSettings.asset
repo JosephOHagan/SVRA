@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TrainingScenesSolutions/svra_04_grabbable_object_events.unity
     guid: 29c497f7afbef0f459850c249811c53e
+  - enabled: 1
+    path: Assets/Scenes/TrainingScenesSolutions/svra_06_target_range.unity
+    guid: 31215c253fc982a489c961a625353eaa
