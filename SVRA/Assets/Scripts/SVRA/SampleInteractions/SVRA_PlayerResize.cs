@@ -7,8 +7,8 @@ public class SVRA_PlayerResize : MonoBehaviour {
     private Vector3 originalScale;
     private SteamVR_PlayArea playArea;
 
-    [Tooltip("Should the player start default or resized")]
-    public bool sizeToggle = false;
+    [Tooltip("Should the player start default or modified height")]
+    public bool startModified = false;
 
     [Tooltip("Vector size of the world to rescale to")]
     public Vector3 toggleScale = new Vector3(0.5f, 0.5f, 0.5f);
@@ -20,9 +20,9 @@ public class SVRA_PlayerResize : MonoBehaviour {
     }
     
 	/* Resize the play area to the specified value */
-	public void ResizePlayArea () {
-        sizeToggle = !sizeToggle;
-        playArea.transform.localScale = sizeToggle ? toggleScale : originalScale;       
+	public void ResizePlayer () {
+        startModified = !startModified;
+        playArea.transform.localScale = startModified ? toggleScale : originalScale;       
     }
     
 }

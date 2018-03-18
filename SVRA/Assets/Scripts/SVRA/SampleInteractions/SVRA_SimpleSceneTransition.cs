@@ -16,6 +16,7 @@ public class SVRA_SimpleSceneTransition : MonoBehaviour {
     [Tooltip("Display the grid in the transition zone")]
     public bool showGrid = false;
 
+    // Named as TransitionLevel for consistency with SteamVR_LoadLevel class name
     public void TransitionLevel()
     {
         SteamVR_LoadLevel.Begin(levelName, showGrid, fadeOutTime, backgroundRGBAColor.r, backgroundRGBAColor.g, backgroundRGBAColor.b, backgroundRGBAColor.a);
