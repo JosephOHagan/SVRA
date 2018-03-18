@@ -352,6 +352,39 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f35fa249b5008c44ac2998be6f82d4d, type: 2}
   m_IsPrefabParent: 0
+--- !u!21 &839888903
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _EnableExternalAlpha: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &893261000
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,10 +397,6 @@ GameObject:
   - component: {fileID: 893261007}
   - component: {fileID: 893261006}
   - component: {fileID: 893261005}
-  - component: {fileID: 893261004}
-  - component: {fileID: 893261003}
-  - component: {fileID: 893261002}
-  - component: {fileID: 893261001}
   m_Layer: 0
   m_Name: Projectile Stick
   m_TagString: Untagged
@@ -375,82 +404,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &893261001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 893261000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 254deb68a5a48284caaa210a2a03a69a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectileCharacteristics:
-    projectileSize: 0.1
-    projectileSpeed: 500
-    projectileCooldown: 0.2
-    greenAxis:
-      direction: 1
-      directionForce: 1
-      offset: 0.2
-    blueAxis:
-      direction: 0
-      directionForce: 0
-      offset: 0
-    redAxis:
-      direction: 0
-      directionForce: 0
-      offset: 0
-  projectile: {fileID: 1945020361673186, guid: fc59c2f5320bf944187b6333101b60d8, type: 2}
-  vibration: 1
---- !u!114 &893261002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 893261000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b576b3a9180c0645be54d562a1e46ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightEffect:
-    _classRef: SVRA_GeneralLightenHighlightTintEffect, Assembly-CSharp
---- !u!114 &893261003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 893261000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e164e65e7b1aadb4099aad9a6ea17ad5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightEffect:
-    _classRef: SVRA_GeneralLightenHighlightTintEffect, Assembly-CSharp
-  snapPoint:
-    enable: 1
-    localPosition: {x: 0, y: 0.05, z: 0}
-  rotation:
-    mode: 2
-    localOrientation: {x: 90, y: 0, z: -0}
---- !u!54 &893261004
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 893261000}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!23 &893261005
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -701,9 +654,6 @@ GameObject:
   - component: {fileID: 1312134200}
   - component: {fileID: 1312134199}
   - component: {fileID: 1312134198}
-  - component: {fileID: 1312134203}
-  - component: {fileID: 1312134202}
-  - component: {fileID: 1312134201}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -777,71 +727,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1312134196}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1312134201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1312134196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a28a0294c4d6124ab6d4d9adb1fad5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SVRA_Event: 0
-  attachedFunction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2027524630}
-        m_MethodName: CopyObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!114 &1312134202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1312134196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc37e0ae9d3961e499fb03303b65beac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fullAnimation: 1
-  animationMotion:
-    xAxis: 0
-    yAxis: 1
-    zAxis: 0
-    reverseDirection: 1
-    movementDistance: 0.02
-    animationSpeed: 0.08
-  vibration:
-    toggleVibration: 0
-    duration: 25
-    strength: 0.4
---- !u!114 &1312134203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1312134196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b576b3a9180c0645be54d562a1e46ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightEffect:
-    _classRef: SVRA_GeneralLightenHighlightTintEffect, Assembly-CSharp
---- !u!43 &1408746099
+--- !u!43 &1507281143
 Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -969,39 +855,6 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
---- !u!21 &1621982133
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: Sprites/Default
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - PixelSnap: 0
-    - _EnableExternalAlpha: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &1796942195
 Prefab:
   m_ObjectHideFlags: 0
@@ -1044,11 +897,11 @@ Prefab:
     - target: {fileID: 2348914, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1621982133}
+      objectReference: {fileID: 839888903}
     - target: {fileID: 3380982, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1408746099}
+      objectReference: {fileID: 1507281143}
     - target: {fileID: 11489174, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: vertices.Array.data[0].z
       value: -1.125
@@ -1207,9 +1060,6 @@ GameObject:
   - component: {fileID: 2027524628}
   - component: {fileID: 2027524627}
   - component: {fileID: 2027524626}
-  - component: {fileID: 2027524632}
-  - component: {fileID: 2027524631}
-  - component: {fileID: 2027524630}
   m_Layer: 0
   m_Name: Copy Cube
   m_TagString: Untagged
@@ -1283,53 +1133,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2027524630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2027524625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df80bacda9708e04fae486bee68d19a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  copyObject: {fileID: 2027524625}
-  spawnPoint: {fileID: 988975108}
---- !u!114 &2027524631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2027524625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e164e65e7b1aadb4099aad9a6ea17ad5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightEffect:
-    _classRef: SVRA_GeneralLightenHighlightTintEffect, Assembly-CSharp
-  snapPoint:
-    enable: 0
-    localPosition: {x: 0, y: 0, z: 0}
-  rotation:
-    mode: 1
-    localOrientation: {x: 0, y: 0, z: 0}
---- !u!54 &2027524632
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2027524625}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &2060328825
 GameObject:
   m_ObjectHideFlags: 0
