@@ -77,17 +77,6 @@ The following are a list of potential scene ideas in case you need some ideas to
   * https://docs.google.com/document/d/1tY_tQTMylLhXaqLDtHOcNoCwF-T6UQRthw3m4NSzVwE/edit?usp=sharing
 
 ## Other Scripts
-* SVRA_PlayAreaModifier: Used to modify the play area dynamically while the game is running via the keyboard
-  * Attach to the SteamVR CameraRig prefab
-  * Features include rotate, scaling and movement of the play area
-
-* SVRA_InteractButton: Used to attach an animation motion to an interact button
-  * Attach to the part of the object to animate
-  * Setup animation properties in the Inspector window
-
-* SVRA_InteractSwitch: Used to setup a light switch style toggle for a button
-  * Attach to the part of the object to animate
-
 * SVRA_ChangeColor: Used to toggle the color of an object
   * Attach to the object to change the color of
   * Setup the number of and colors to cycle through
@@ -95,14 +84,17 @@ The following are a list of potential scene ideas in case you need some ideas to
 
 * SVRA_ChangeMaterial: Used to toggle the material of an object
   * Setup the same as SVRA_ChangeColor
-  
+
+* SVRA_CopyObject: Allows the creation of a copy of a specified object
+  * Add to an object
+  * Add the object to be copied to the "Copy Object" parameter in the Inspector window
+  * Add the transform (empty gameobject) of the position for the object to be spawned to the "Spawn Point" parameter in the Inspector window
+  * Setup the fuction in the event bridge to trigger the scene change on the specified event
+
 * SVRA_GrabToggle: Used to toggle if an can be grabbed or not
   * Attach to the object to toggle grabbable or not
   * Setup the fuction in the event bridge to trigger the grabbable toggle on the specified event   
- 
- * SVRA_InteractToggle: Used to toggle if an object can be interacted with or not
-  * Setup the same as SVRA_GrabToggle
- 
+
 * SVRA_HoverSnapZone : Used with SVRA_HoverSnapZonePosition
   * Setup object to setup snap zone on 
   * Create a copy of the object to represent the snap zone location (see SVRA_HoverSnapZonePosition for setting up the copy object)
@@ -117,30 +109,38 @@ The following are a list of potential scene ideas in case you need some ideas to
   * Attach the SVRA_HoverSnapZonePosition script
   * Drag and drop the SVRA_HoverSnapZone object into the "Snap Zone Transform" setting
 
-* SVRA_CopyObject: Allows the creation of a copy of a specified object
-  * Add to an object
-  * Add the object to be copied to the "Copy Object" parameter in the Inspector window
-  * Add the transform (empty gameobject) of the position for the object to be spawned to the "Spawn Point" parameter in the Inspector window
-  * Setup the fuction in the event bridge to trigger the scene change on the specified event
+* SVRA_InteractButton: Used to attach an animation motion to an interact button
+  * Attach to the part of the object to animate
+  * Setup animation properties in the Inspector window
+
+* SVRA_InteractSwitch: Used to setup a light switch style toggle for a button
+  * Attach to the part of the object to animate
+ 
+ * SVRA_InteractToggle: Used to toggle if an object can be interacted with or not
+  * Setup the same as SVRA_GrabToggle
+
+* SVRA_PlayAreaModifier: Used to modify the play area dynamically while the game is running via the keyboard
+  * Attach to the SteamVR CameraRig prefab
+  * Features include rotate, scaling and movement of the play area
+  
+* SVRA_PlayerResize: Resizes the play area and player to specfied parameter
+  * Attach to the object to trigger the size change on interacting with
+  * Setup the fuction in the event bridge to trigger the resize on the specified event
 
 * SVRA_ProjectileShooter: A simple projectile shooter system
   * Attach to the object to fire the projectile from
   * Drag a prefab or gameobject into the "Projectile" option in the Inspector window
   * The projectile characteristics determine the direction, angle, frequency, speed and size of the projectile that is fired
   * The "Vibration" toggle is used to determine whether or not to trigger a small vibration burst on firing the projectile
-  
-* SVRA_PlayerResize: Resizes the play area and player to specfied parameter
-  * Attach to the object to trigger the size change on interacting with
-  * Setup the fuction in the event bridge to trigger the resize on the specified event
-
-* SVRA_SliderVibration: Used to trigger a vibration on sliding or grabbing an object
-  * Attach to the object to trigger the vibration on grabbing
 
 * SVRA_SceneTransition: Used to transition between 2 Unity scenes via the event bridge
   * Ensure the scene to transition to is include in the project build settings
   * Attach to the object to transition scenes when interacted with
   * Add the name of the scene to the "Level Name" attribute in the Inspector window
   * Setup the fuction in the event bridge to trigger the scene change on the specified event
+
+* SVRA_SliderVibration: Used to trigger a vibration on sliding or grabbing an object
+  * Attach to the object to trigger the vibration on grabbing
   
 * SVRA_TriggerAudio: Used to trigger audio on triggering an interaction
   * Attach to the object and setup the audio to be triggered
